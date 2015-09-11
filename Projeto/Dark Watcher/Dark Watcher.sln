@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dark Watcher.CSharp.Plugins", "Dark Watcher.CSharp.Plugins.csproj", "{613A7265-B48F-88C5-1566-E39BB3516AA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dark Watcher.CSharp", "Dark Watcher.CSharp.csproj", "{20A4DC6B-42C3-D9AC-24BF-0ABBFD9D60D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dark Watcher.CSharp.Editor", "Dark Watcher.CSharp.Editor.csproj", "{55DAF0F0-2132-6719-6965-E4B35370D203}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{613A7265-B48F-88C5-1566-E39BB3516AA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{613A7265-B48F-88C5-1566-E39BB3516AA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{613A7265-B48F-88C5-1566-E39BB3516AA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{613A7265-B48F-88C5-1566-E39BB3516AA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20A4DC6B-42C3-D9AC-24BF-0ABBFD9D60D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20A4DC6B-42C3-D9AC-24BF-0ABBFD9D60D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20A4DC6B-42C3-D9AC-24BF-0ABBFD9D60D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20A4DC6B-42C3-D9AC-24BF-0ABBFD9D60D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55DAF0F0-2132-6719-6965-E4B35370D203}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55DAF0F0-2132-6719-6965-E4B35370D203}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55DAF0F0-2132-6719-6965-E4B35370D203}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55DAF0F0-2132-6719-6965-E4B35370D203}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
