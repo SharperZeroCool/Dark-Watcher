@@ -26,8 +26,8 @@ public class CameraFollow : MonoBehaviour {
 		}
 
 		if ( useDefaultCameraOffset ) {
-			transform.position = target.position + new Vector3(7, 3, 0);
-			transform.LookAt(target.position + Vector3.up);
+			transform.position = target.position + new Vector3(8, 6, 0);
+			transform.LookAt(target.position + Vector3.up * 3);
 		}
 
 		offset = target.position - transform.position;

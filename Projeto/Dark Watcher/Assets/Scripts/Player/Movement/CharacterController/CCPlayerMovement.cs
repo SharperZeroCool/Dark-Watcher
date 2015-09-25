@@ -65,11 +65,14 @@ public class CCPlayerMovement : MonoBehaviour {
 
 	private Vector3 jumpDirection;
 
+	private Animator anim;
+
 	private bool isFacingWall;
 
 	private void Start() {
 		movement = Vector3.zero;
 		characterController = GetComponent<CharacterController>();
+		anim = GetComponent<Animator>();
 		jumpDirection = Vector3.up;
 		isInWater = false;
 		isInWaterSurface = false;
@@ -109,11 +112,11 @@ public class CCPlayerMovement : MonoBehaviour {
 	}
 
 	protected bool HasHorizontalMovement() {
-		return horizontalAxis != 0;
+		return horizontalAxis != 0 && !IsShielded();
 	}
 
 	protected bool HasVerticalMovement() {
-		return verticalAxis != 0;
+		return verticalAxis != 0 && !IsShielded();
 	}
 
 	protected bool IsAllowedToJump() {
@@ -130,6 +133,14 @@ public class CCPlayerMovement : MonoBehaviour {
 
 	protected bool IsGrabbingWall() {
 		return isFacingWall && HasHorizontalMovement();
+	}
+
+	protected bool IsShielded() {
+		return Input.GetButton("Fire2");
+	}
+
+	protected void Animate() {
+		anim.SetBool("IsWalking", HasHorizontalMovement() || IsShielded());
 	}
 
 	private void OnControllerColliderHit(ControllerColliderHit other) {
@@ -152,6 +163,7 @@ public class CCPlayerMovement : MonoBehaviour {
 			movement *= 0.2f;
 			isInWater = true;
 		}
+
 	}
 
 	private void OnTriggerStay(Collider other) {

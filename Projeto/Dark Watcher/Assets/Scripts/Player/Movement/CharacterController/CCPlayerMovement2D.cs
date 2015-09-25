@@ -32,9 +32,14 @@ public class CCPlayerMovement2D : CCPlayerMovement {
 		jumpButton = Input.GetButton("Jump");
 		runningButton = Input.GetButton("Sprint");
 
-		Move();
-		Flip();
-		Jump();
+		if( !IsShielded() ) {
+
+			Move();
+			Flip();
+			Jump();
+
+		}
+		
 
 		if ( ShouldApplyGravity() ) {
 			Gravity();
@@ -48,6 +53,8 @@ public class CCPlayerMovement2D : CCPlayerMovement {
 		LimitVerticalSpeed();
 
 		characterController.Move(movement * Time.fixedDeltaTime);
+
+		Animate();
 
 	}
 
