@@ -13,32 +13,26 @@ public class GiantHeadRoutine : MonoBehaviour {
 
 	public float maxOpenEyesTime;
 
+	public float rotationDuration = 1f;
+
 	public bool IsWatching;
 
-	private Animator anim;
+	private Quaternion fromRotation;
 
-	private float animTime;
+	private Quaternion toRotation;
+
+	private float startRotationDuration;
 
 	private void Start() {
-		anim = GetComponent<Animator>();
 		IsWatching = true;
-		animTime = 1f;
 		StartCoroutine("Routine");
-	}
+		fromRotation = transform.rotation;
+		toRotation = Quaternion.LookRotation(transform.forward * -1);
+		startRotationDuration = rotationDuration;
+    }
 
-	public void TurnLightsOff() {
-		ToggleLights(false);
-	}
-
-	public void TurnLightsOn() {
-		ToggleLights(true);
-	}
-
-	private void ToggleLights(bool b) {
-		for ( int i = 0; i < lights.Length; i++ ) {
-			lights[i].enabled = b;
-		}
-		IsWatching = b;
+	private void FixedUpdate() {
+		transform.rotation = Quaternion.Lerp(fromRotation, toRotation, Time.fixedDeltaTime * rotationDuration);
 	}
 
 	private IEnumerator Routine() {
@@ -53,15 +47,18 @@ public class GiantHeadRoutine : MonoBehaviour {
 
 			yield return new WaitForSeconds(waitTime);
 
-			ToggleEyes();
+			ToggleSight();
 
-			yield return new WaitForSeconds(animTime);
+			yield return new WaitForSeconds(rotationDuration);
 		}
 	}
 
-	private void ToggleEyes() {
-		anim.speed = 1f + (0.01f * ScoreManager.score);
-		anim.SetBool("IsWatching", !IsWatching);
-	}
+	private void ToggleSight() {
+		Quaternion rotation = toRotation;
+		toRotation = fromRotation;
+		fromRotation = rotation;
+		rotationDuration = startRotationDuration - (0.01f * ScoreManager.score);
+		IsWatching = !IsWatching;
+    }
 
 }

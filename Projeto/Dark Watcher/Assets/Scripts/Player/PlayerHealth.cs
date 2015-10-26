@@ -18,13 +18,15 @@ public class PlayerHealth : MonoBehaviour {
 
 	public Color flashColour = new Color(1f, 0f, 0f, 0.01f);
 
-	public AudioSource audioSource;
+	public AudioSource bossAttackAudioSource;
 
 	public int startingHealth = 100;
 
 	public float currentHealth;
 
 	public float flashSpeed = 5f;
+
+	public bool unprotected;
 
 	private Dictionary<SkinnedMeshRenderer, Material[]> meshMaterialMap = new Dictionary<SkinnedMeshRenderer, Material[]>();
 
@@ -34,20 +36,20 @@ public class PlayerHealth : MonoBehaviour {
 
 	private CCPlayerMovement2D playerMovement;
 
-	private ParticleSystem particles;
+	private AudioSource[] damageAudioSource;
 
 	private bool deathTriggered;
 
 	private bool damaged;
 
-	private bool unprotected;
-
 	private bool hasPlayedAudio;
+
+	private bool bossAttack;
 
 	private void Awake() {
 		anim = GetComponent<Animator>();
 		playerMovement = GetComponent<CCPlayerMovement2D>();
-		particles = GetComponentInChildren<ParticleSystem>();
+		damageAudioSource = GetComponents<AudioSource>();
 		meshes = GetComponentsInChildren<SkinnedMeshRenderer>();
 
 		for ( int i = 0; i < meshes.Length; i++ ) {
@@ -59,6 +61,7 @@ public class PlayerHealth : MonoBehaviour {
 		damaged = false;
 		unprotected = true;
 		hasPlayedAudio = false;
+		bossAttack = false;
 	}
 
 	private void FixedUpdate() {
@@ -66,8 +69,8 @@ public class PlayerHealth : MonoBehaviour {
 
 		CheckIfUnderSight();
 		if ( damaged && isAlive() ) {
-			if ( !hasPlayedAudio ) {
-				audioSource.Play();
+			if ( !hasPlayedAudio && bossAttack ) {
+				bossAttackAudioSource.Play();
 				hasPlayedAudio = true;
 				Camera.main.GetComponent<ScreenOverlay>().enabled = true;
 			}
@@ -88,6 +91,21 @@ public class PlayerHealth : MonoBehaviour {
 		return currentHealth > 0;
 	}
 
+	public void TakeDamage(float amount, bool bossAttack) {
+		damaged = true;
+		this.bossAttack = bossAttack;
+
+		currentHealth -= amount;
+		healthSlider.value = currentHealth;
+
+		SoundManager.instance.playAtRandomPitch(damageAudioSource[Random.Range(0, damageAudioSource.Length)]);
+
+		if ( !isAlive() && !deathTriggered ) {
+			Death();
+		}
+
+	}
+
 	private void CheckIfProtected() {
 		unprotected = !Input.GetButton("Fire2");
 
@@ -102,20 +120,24 @@ public class PlayerHealth : MonoBehaviour {
 		for ( int i = 0; i < meshes.Length; i++ ) {
 			meshes[i].material = protectedMaterial;
 		}
+		anim.enabled = false;
+
 		Camera.main.GetComponent<AudioSource>().pitch = -0.5f;
 		Camera.main.GetComponent<SepiaTone>().enabled = true;
+		Camera.main.GetComponent<ScreenSpaceAmbientOcclusion>().enabled = true;
 		Camera.main.GetComponent<MotionBlur>().blurAmount = 1f;
-		particles.Stop();
 	}
 
 	private void RemoveProtection() {
 		for ( int i = 0; i < meshes.Length; i++ ) {
 			meshes[i].materials = meshMaterialMap[meshes[i]];
 		}
+		anim.enabled = true;
+
 		Camera.main.GetComponent<AudioSource>().pitch = 1;
 		Camera.main.GetComponent<SepiaTone>().enabled = false;
+		Camera.main.GetComponent<ScreenSpaceAmbientOcclusion>().enabled = false;
 		Camera.main.GetComponent<MotionBlur>().blurAmount = 0.1f;
-		particles.Play();
 	}
 
 	private void CheckIfUnderSight() {
@@ -126,31 +148,17 @@ public class PlayerHealth : MonoBehaviour {
 		for ( int i = 0; i < eyes.Length; i++ ) {
 			if ( Physics.Raycast(transform.position, eyes[i].position, out hit) ) {
 				if ( hit.transform.gameObject.tag == "GiantHead" ) {
-					TakeDamage(1f);
+					TakeDamage(1f, true);
 					break;
 				}
 			}
 		}
 	}
 
-	private void TakeDamage(float amount) {
-		damaged = true;
-
-		currentHealth -= amount;
-		healthSlider.value = currentHealth;
-
-		if ( !isAlive() && !deathTriggered ) {
-			Death();
-		}
-
-	}
-
-
 	private void Death() {
 		deathTriggered = true;
-		anim.SetTrigger("Die");
+		//anim.SetTrigger("Die");
 		playerMovement.enabled = false;
-		particles.Stop();
 	}
 
 }

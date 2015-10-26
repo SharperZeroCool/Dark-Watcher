@@ -34,7 +34,11 @@ public class CollectableBehaviour : MonoBehaviour {
 		audioSource.Play();
 		boxCollider.enabled = false;
 		mesh.enabled = false;
-		Destroy(gameObject, 0.5f);
+		Invoke("DisableCoin", 0.5f);
+	}
+	
+	private void DisableCoin() {
+		gameObject.SetActive(false);
 	}
 
 	private bool IsPlayer(string tag) {

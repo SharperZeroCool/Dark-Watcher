@@ -63,6 +63,8 @@ public class CCPlayerMovement : MonoBehaviour {
 
 	protected bool isInWaterSurface;
 
+	protected bool canCheckForLanding;
+
 	private Vector3 jumpDirection;
 
 	private Animator anim;
@@ -96,6 +98,11 @@ public class CCPlayerMovement : MonoBehaviour {
 
 			isFacingWall = false;
 			isInWaterSurface = false;
+
+			JumpAnimation();
+
+			Invoke("CheckForLanding", 0.8f);
+
 		}
 
 		if ( jumpButton ) {
@@ -105,6 +112,17 @@ public class CCPlayerMovement : MonoBehaviour {
 		}
 
 		jumpDirection = Vector3.up;
+
+	}
+
+	protected void JumpAnimation() {
+		canCheckForLanding = false;
+        anim.SetTrigger("Jump");
+	}
+
+	protected void LandAnimation() {
+		canCheckForLanding = false;
+        anim.SetTrigger("Grounded");
 	}
 
 	protected void ResetFrameVariables() {
@@ -140,7 +158,15 @@ public class CCPlayerMovement : MonoBehaviour {
 	}
 
 	protected void Animate() {
-		anim.SetBool("IsWalking", HasHorizontalMovement() || IsShielded());
+		bool isWalking = HasHorizontalMovement();
+		if ( isWalking ) {
+			if ( runningButton ) {
+				anim.speed = 1.5f;
+			} else {
+				anim.speed = 1f;
+			}
+		}
+		anim.SetBool("IsWalking", isWalking);
 	}
 
 	private void OnControllerColliderHit(ControllerColliderHit other) {
@@ -179,6 +205,10 @@ public class CCPlayerMovement : MonoBehaviour {
 			isInWater = false;
 			isInWaterSurface = true;
 		}
+	}
+
+	private void CheckForLanding() {
+		canCheckForLanding = true;
 	}
 
 

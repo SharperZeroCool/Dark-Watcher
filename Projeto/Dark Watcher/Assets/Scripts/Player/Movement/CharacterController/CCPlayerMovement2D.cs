@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CCPlayerMovement2D : CCPlayerMovement {
 
+	private bool canMove = true;
+
 	private void Update() {
 		bool jumpPressed = Input.GetButtonDown("Jump");
 
@@ -13,6 +15,9 @@ public class CCPlayerMovement2D : CCPlayerMovement {
 			doubleJump = true;
 			hasDoubleJumped = true;
 		}
+
+
+
 
 	}
 
@@ -32,14 +37,14 @@ public class CCPlayerMovement2D : CCPlayerMovement {
 		jumpButton = Input.GetButton("Jump");
 		runningButton = Input.GetButton("Sprint");
 
-		if( !IsShielded() ) {
+		if ( !IsShielded() ) {
 
 			Move();
 			Flip();
 			Jump();
 
 		}
-		
+
 
 		if ( ShouldApplyGravity() ) {
 			Gravity();
@@ -52,10 +57,25 @@ public class CCPlayerMovement2D : CCPlayerMovement {
 		LimitHorizontalSpeed();
 		LimitVerticalSpeed();
 
-		characterController.Move(movement * Time.fixedDeltaTime);
+		if ( canMove )
+			characterController.Move(movement * Time.fixedDeltaTime);
 
 		Animate();
 
+		if ( canCheckForLanding && characterController.isGrounded) {
+			LandAnimation();
+		}
+
+
+	}
+
+	public void AllowMovement() {
+		canMove = true;
+	}
+
+	public void DisallowMovement() {
+		movement.z = 0;
+		canMove = false;
 	}
 
 	private void Move() {
@@ -108,6 +128,7 @@ public class CCPlayerMovement2D : CCPlayerMovement {
 		if ( Mathf.Abs(movement.z) > maxSpeed ) {
 			movement.z = maxSpeed * transform.forward.z;
 		}
+
 	}
 
 	private void LimitVerticalSpeed() {
@@ -199,4 +220,5 @@ public class CCPlayerMovement2D : CCPlayerMovement {
 		position.x = 0;
 		transform.position = position;
 	}
+
 }

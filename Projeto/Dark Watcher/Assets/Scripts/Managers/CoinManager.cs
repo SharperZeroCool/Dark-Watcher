@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CoinManager : MonoBehaviour {
-
-	public GameObject coin;
+public class CoinManager : AbstractManager {
 
 	public float intervalSeconds;
 
@@ -11,16 +9,12 @@ public class CoinManager : MonoBehaviour {
 
 	public int maxSpawnRange;
 
-	private void Start() {
-		StartCoroutine("ManageSpawn");
-	}
-
-	private IEnumerator ManageSpawn() {
+	protected override IEnumerator ManageSpawn() {
 		while ( true ) {
 			int random = Random.Range(1, 100);
 
 			if ( random <= percentChance ) {
-				SpawnCoin();
+				SpawnGameObject();
 			}
 
 			yield return new WaitForSeconds(intervalSeconds);
@@ -28,11 +22,12 @@ public class CoinManager : MonoBehaviour {
 
 	}
 
-	private void SpawnCoin() {
+
+	protected override void SpawnGameObject() {
 		int randomPosition = Random.Range(-maxSpawnRange, maxSpawnRange);
-		if ( randomPosition >= 0 ) {
+		if ( randomPosition >= 0 && randomPosition <= 15) {
 			randomPosition += 15;
-		} else {
+		} else if(randomPosition <=0 && randomPosition >= -15){
 			randomPosition -= 15;
 		}
 		int randomHeight = Random.Range(0, 11);
@@ -46,6 +41,11 @@ public class CoinManager : MonoBehaviour {
 			}
 		}
 
-		Instantiate(coin, Vector3.forward * randomPosition + Vector3.up * randomHeight, transform.rotation);
+		CacheManager.SpawnNewGameObject(objects, Vector3.forward * randomPosition + Vector3.up * randomHeight, transform.rotation);
 	}
+
+	protected override void CacheGameObjects() {
+		CacheManager.CachePrefabs(out objects, maxNumberOfObjects, prefab);
+	}
+
 }
