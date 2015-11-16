@@ -92,6 +92,9 @@ public class PlayerHealth : MonoBehaviour {
 	}
 
 	public void TakeDamage(float amount, bool bossAttack) {
+		if ( !isAlive() ) {
+			return;
+		}
 		damaged = true;
 		this.bossAttack = bossAttack;
 
@@ -157,7 +160,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	private void Death() {
 		deathTriggered = true;
-		//anim.SetTrigger("Die");
+		anim.SetTrigger("Die");
 		playerMovement.enabled = false;
 	}
 
