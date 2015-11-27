@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using UnityStandardAssets.ImageEffects;
 
 public class PlayerHealth : MonoBehaviour {
 
@@ -10,19 +9,25 @@ public class PlayerHealth : MonoBehaviour {
 
 	public Transform[] eyes;
 
-	public GiantHeadRoutine routine;
+	public MoonRoutine moonRoutine;
 
 	public Slider healthSlider;
+
+	public Text healthText;
 
 	public Image damageImage;
 
 	public Color flashColour = new Color(1f, 0f, 0f, 0.01f);
 
-	public AudioSource bossAttackAudioSource;
+	public AudioSource moonAttackAudioSource;
+
+	public AudioSource[] damageAudioSource;
 
 	public int startingHealth = 100;
 
 	public float currentHealth;
+
+	public float flashFor = 3f;
 
 	public float flashSpeed = 5f;
 
@@ -36,7 +41,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	private CCPlayerMovement2D playerMovement;
 
-	private AudioSource[] damageAudioSource;
+	private MeshExploder[] meshExploders;
 
 	private bool deathTriggered;
 
@@ -44,24 +49,23 @@ public class PlayerHealth : MonoBehaviour {
 
 	private bool hasPlayedAudio;
 
-	private bool bossAttack;
+	private bool moonAttack;
+
+	private bool flashing;
 
 	private void Awake() {
 		anim = GetComponent<Animator>();
 		playerMovement = GetComponent<CCPlayerMovement2D>();
-		damageAudioSource = GetComponents<AudioSource>();
-		meshes = GetComponentsInChildren<SkinnedMeshRenderer>();
-
-		for ( int i = 0; i < meshes.Length; i++ ) {
-			meshMaterialMap[meshes[i]] = meshes[i].materials;
-		}
+		meshExploders = GetComponentsInChildren<MeshExploder>();
+		LoadProtectionMaterials();
 
 		currentHealth = startingHealth;
 		damageImage.color = Color.clear;
 		damaged = false;
 		unprotected = true;
 		hasPlayedAudio = false;
-		bossAttack = false;
+		moonAttack = false;
+		flashing = false;
 	}
 
 	private void FixedUpdate() {
@@ -69,22 +73,18 @@ public class PlayerHealth : MonoBehaviour {
 
 		CheckIfUnderSight();
 		if ( damaged && isAlive() ) {
-			if ( !hasPlayedAudio && bossAttack ) {
-				bossAttackAudioSource.Play();
+			if ( !hasPlayedAudio && moonAttack ) {
+				moonAttackAudioSource.Play();
 				hasPlayedAudio = true;
-				Camera.main.GetComponent<ScreenOverlay>().enabled = true;
+				Camera.main.GetComponent<EffectsHandler>().EnableDamageEffects();
 			}
 			damageImage.color = flashColour;
 		} else {
 			hasPlayedAudio = false;
 			damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-			Camera.main.GetComponent<ScreenOverlay>().enabled = false;
+			Camera.main.GetComponent<EffectsHandler>().DisableDamageEffects();
 		}
 		damaged = false;
-	}
-
-	public void RestartLevel() {
-		Application.LoadLevel(Application.loadedLevel);
 	}
 
 	public bool isAlive() {
@@ -92,21 +92,50 @@ public class PlayerHealth : MonoBehaviour {
 	}
 
 	public void TakeDamage(float amount, bool bossAttack) {
-		if ( !isAlive() ) {
+		if ( !isAlive() || flashing && !bossAttack ) {
 			return;
 		}
 		damaged = true;
-		this.bossAttack = bossAttack;
+		this.moonAttack = bossAttack;
 
 		currentHealth -= amount;
-		healthSlider.value = currentHealth;
+		UpdateUIHealthAmount();
 
 		SoundManager.instance.playAtRandomPitch(damageAudioSource[Random.Range(0, damageAudioSource.Length)]);
 
 		if ( !isAlive() && !deathTriggered ) {
 			Death();
+		} else {
+			StartCoroutine("FlashPlayer");
 		}
 
+	}
+
+	public void HealDamage(float amount) {
+		if ( currentHealth < startingHealth ) {
+			currentHealth += amount;
+		}
+		if ( currentHealth > startingHealth ) {
+			currentHealth = startingHealth;
+		}
+		UpdateUIHealthAmount();
+	}
+
+	private void UpdateUIHealthAmount() {
+		healthSlider.value = currentHealth;
+		healthText.text = currentHealth.ToString();
+	}
+
+	private IEnumerator FlashPlayer() {
+		flashing = true;
+		float whenWeAreDone = Time.time + flashFor;
+		while ( Time.time < whenWeAreDone ) {
+			EnableProtectedMaterials();
+			yield return new WaitForFixedUpdate();
+			DisableProtectedMaterials();
+			yield return new WaitForFixedUpdate();
+		}
+		flashing = false;
 	}
 
 	private void CheckIfProtected() {
@@ -120,37 +149,39 @@ public class PlayerHealth : MonoBehaviour {
 	}
 
 	private void ProtectPlayer() {
-		for ( int i = 0; i < meshes.Length; i++ ) {
-			meshes[i].material = protectedMaterial;
-		}
+		StopCoroutine("FlashPlayer");
+		flashing = false;
+		EnableProtectedMaterials();
 		anim.enabled = false;
-
-		Camera.main.GetComponent<AudioSource>().pitch = -0.5f;
-		Camera.main.GetComponent<SepiaTone>().enabled = true;
-		Camera.main.GetComponent<ScreenSpaceAmbientOcclusion>().enabled = true;
-		Camera.main.GetComponent<MotionBlur>().blurAmount = 1f;
+		Camera.main.GetComponent<EffectsHandler>().EnableProtectionEffects();
 	}
 
 	private void RemoveProtection() {
+		DisableProtectedMaterials();
+		anim.enabled = true;
+		Camera.main.GetComponent<EffectsHandler>().DisableProtectionEffects();
+	}
+
+	private void EnableProtectedMaterials() {
+		for ( int i = 0; i < meshes.Length; i++ ) {
+			meshes[i].material = protectedMaterial;
+		}
+	}
+
+	private void DisableProtectedMaterials() {
 		for ( int i = 0; i < meshes.Length; i++ ) {
 			meshes[i].materials = meshMaterialMap[meshes[i]];
 		}
-		anim.enabled = true;
-
-		Camera.main.GetComponent<AudioSource>().pitch = 1;
-		Camera.main.GetComponent<SepiaTone>().enabled = false;
-		Camera.main.GetComponent<ScreenSpaceAmbientOcclusion>().enabled = false;
-		Camera.main.GetComponent<MotionBlur>().blurAmount = 0.1f;
 	}
 
 	private void CheckIfUnderSight() {
-		if ( !routine.IsWatching || !unprotected ) {
+		if ( !moonRoutine.IsWatching || !unprotected ) {
 			return;
 		}
 		RaycastHit hit;
 		for ( int i = 0; i < eyes.Length; i++ ) {
 			if ( Physics.Raycast(transform.position, eyes[i].position, out hit) ) {
-				if ( hit.transform.gameObject.tag == "GiantHead" ) {
+				if ( hit.transform.gameObject.tag == "Moon" ) {
 					TakeDamage(1f, true);
 					break;
 				}
@@ -160,8 +191,24 @@ public class PlayerHealth : MonoBehaviour {
 
 	private void Death() {
 		deathTriggered = true;
-		anim.SetTrigger("Die");
 		playerMovement.enabled = false;
+		anim.enabled = false;
+		for ( int i = 0; i < meshExploders.Length; i++ ) {
+			meshExploders[i].Explode();
+		}
+		Destroy(gameObject);
+	}
+
+	private void LoadProtectionMaterials() {
+		meshes = GetComponentsInChildren<SkinnedMeshRenderer>();
+
+		for ( int i = 0; i < meshes.Length; i++ ) {
+			meshMaterialMap[meshes[i]] = meshes[i].materials;
+		}
+	}
+
+	private void OnParticleCollision(GameObject other) {
+		TakeDamage(5f, false);
 	}
 
 }

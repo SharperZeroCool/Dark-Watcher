@@ -16,7 +16,7 @@
     <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
-    <UnityVersion>5.2.1f1</UnityVersion>
+    <UnityVersion>5.2.2f1</UnityVersion>
     <RootNamespace></RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -26,7 +26,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_2_1;UNITY_5_2;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_REFLECTION_BUFFERS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;CROSS_PLATFORM_INPUT</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_2_2;UNITY_5_2;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_REFLECTION_BUFFERS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;CROSS_PLATFORM_INPUT</DefineConstants>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -36,7 +36,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>TRACE;UNITY_5_2_1;UNITY_5_2;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_REFLECTION_BUFFERS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;CROSS_PLATFORM_INPUT</DefineConstants>
+    <DefineConstants>TRACE;UNITY_5_2_2;UNITY_5_2;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_REFLECTION_BUFFERS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;CROSS_PLATFORM_INPUT</DefineConstants>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
@@ -72,6 +72,9 @@
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-UnityScript-firstpass">
+      <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Dark Watcher.CSharp.Plugins.csproj">
@@ -80,30 +83,272 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Colorful FX\Scripts\Attributes\ColorUsageAttribute.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Attributes\HelpURLAttribute.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Attributes\MinAttribute.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\BaseEffect.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\CLib.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\AnalogTV.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\BilateralGaussianBlur.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\BleachBypass.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Blend.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\BrightnessContrastGamma.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\ChannelClamper.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\ChannelMixer.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\ChannelSwapper.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\ChromaticAberration.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\ComicBook.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\ContrastGain.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\ContrastVignette.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Convolution3x3.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\CrossStitch.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\DirectionalBlur.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Dithering.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\DoubleVision.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\DynamicLookup.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\FastVignette.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Frost.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\GaussianBlur.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Glitch.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\GradientRamp.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\GradientRampDynamic.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\GrainyBlur.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Grayscale.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Halftone.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Histogram.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\HueFocus.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\HueSaturationValue.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Kuwahara.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Led.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\LensDistortionBlur.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Letterbox.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Levels.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\LoFiPalette.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\LookupFilter.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\LookupFilter3D.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Negative.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Noise.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\PhotoFilter.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\PixelMatrix.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Pixelate.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Posterize.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\RGBSplit.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\RadialBlur.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\SCurveContrast.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\ShadowsMidtonesHighlights.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Sharpen.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\SmartSaturation.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Strokes.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\TVVignette.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Technicolor.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Threshold.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Vibrance.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Vintage.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\VintageFast.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\WaveDistortion.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\WhiteBalance.cs" />
+    <Compile Include="Assets\Colorful FX\Scripts\Effects\Wiggle.cs" />
+    <Compile Include="Assets\FogVolume\FogVolume.cs" />
+    <Compile Include="Assets\FogVolume\FogVolumeCreator.cs" />
+    <Compile Include="Assets\Mesh Explosion\Internal\DestroyAfterTime.cs" />
+    <Compile Include="Assets\Mesh Explosion\Internal\DestroyOnFadeCompletion.cs" />
+    <Compile Include="Assets\Mesh Explosion\Internal\Fade.cs" />
+    <Compile Include="Assets\Mesh Explosion\Internal\MeshExplosion.cs" />
+    <Compile Include="Assets\Mesh Explosion\MeshExploder.cs" />
+    <Compile Include="Assets\Natural Bloom\Scripts\SENaturalBloomAndDirtyLens.cs" />
+    <Compile Include="Assets\Particle Playground\Playground Assets\Scripts\PlaygroundSineOverflow.cs" />
+    <Compile Include="Assets\Particle Playground\Playground Assets\Scripts\PlaygroundSineRotation.cs" />
+    <Compile Include="Assets\Particle Playground\Scripts\Playground Splines\PlaygroundSpline.cs" />
+    <Compile Include="Assets\Particle Playground\Scripts\PlaygroundC.cs" />
+    <Compile Include="Assets\Particle Playground\Scripts\PlaygroundParticlesC.cs" />
+    <Compile Include="Assets\Particle Playground\Scripts\Presets\PlaygroundBrushPresetC.cs" />
+    <Compile Include="Assets\Particle Playground\Scripts\Presets\PlaygroundPresetCircleShotC.cs" />
+    <Compile Include="Assets\Particle Playground\Scripts\Presets\PlaygroundPresetLaserC.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Materials\Objects\FireJetPack\FlyDemo.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Demo\MyGUI3_1.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Balls\AddMaterialOnHit.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Balls\AnimatorBehaviour.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Balls\IceOffsetBehaviour.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Balls\LazyLoad.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Balls\LineProjectileCollisionBehaviour.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Balls\ProjectileCollisionBehaviour.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Balls\ScaleParticlesFromBound.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Buffs\AnimationSpeedDebuff.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Buffs\DebuffOnEnemyFromCollision.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Buffs\ShieldCollisionBehaviour.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Buffs\WaterUvAnimation.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Objects\MoveOnGround.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Objects\OffsetOnNormal.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Objects\OnRigidbodySendCollision.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Objects\ResetPositionOnDiactivated.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Prefabs\Shots\LineRendererBehaviour.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\Billboard.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\CollisionActiveBehaviour.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\DeadTime.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\DistortionMobile.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\EffectSettings.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\FadeInOutLight.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\FadeInOutParticles.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\FadeInOutScale.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\FadeInOutShaderColor.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\FadeInOutShaderFloat.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\FadeInOutSound.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\FadeInOutStatus.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\FixShaderQueue.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\OnStartSendCollision.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\RotateAround.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\SetPositionOnHit.cs" />
+    <Compile Include="Assets\Realistic Effects Pack\Scripts\Share\UVTextureAnimator.cs" />
+    <Compile Include="Assets\SSAO Pro\Scripts\SSAOPro.cs" />
+    <Compile Include="Assets\SSR\CandelaSSRR.cs" />
     <Compile Include="Assets\Scripts\Audio\MixLevels.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Camera\EffectsHandler.cs" />
+    <Compile Include="Assets\Scripts\Collectable\CoinBehaviour.cs" />
     <Compile Include="Assets\Scripts\Collectable\CollectableBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Enemy\GiantHeadMovement.cs" />
-    <Compile Include="Assets\Scripts\Enemy\GiantHeadRoutine.cs" />
+    <Compile Include="Assets\Scripts\Collectable\HealthBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Enemy Background\Arrow.cs" />
+    <Compile Include="Assets\Scripts\Enemy Background\EnemyBackgroundAttack.cs" />
+    <Compile Include="Assets\Scripts\Enemy Background\EnemyBackgroundMovement.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyAttack.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyBossAttack.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\Managers\AbstractManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\ArrowManager.cs" />
     <Compile Include="Assets\Scripts\Managers\CacheManager.cs" />
     <Compile Include="Assets\Scripts\Managers\CoinManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\EnemyBackgroundManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Managers\GameOverManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\HealthManager.cs" />
     <Compile Include="Assets\Scripts\Managers\PauseManager.cs" />
     <Compile Include="Assets\Scripts\Managers\ScoreManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\SkeletonManager.cs" />
     <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\WaveManager.cs" />
+    <Compile Include="Assets\Scripts\Moon\MoonMovement.cs" />
+    <Compile Include="Assets\Scripts\Moon\MoonRoutine.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\CharacterController\CCPlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\CharacterController\CCPlayerMovement2D.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerShooting.cs" />
-    <Compile Include="Assets\Scripts\Skeleton\EnemyAttack.cs" />
-    <Compile Include="Assets\Scripts\Skeleton\EnemyHealth.cs" />
-    <Compile Include="Assets\Scripts\Skeleton\EnemyMovement.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Colorful FX\Editor\Shaders\_DynamicLookup.shader" />
+    <None Include="Assets\Colorful FX\Shaders\AnalogTV.shader" />
+    <None Include="Assets\Colorful FX\Shaders\BilateralGaussianBlur.shader" />
+    <None Include="Assets\Colorful FX\Shaders\BleachBypass.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Blend.shader" />
+    <None Include="Assets\Colorful FX\Shaders\BrightnessContrastGamma.shader" />
+    <None Include="Assets\Colorful FX\Shaders\ChannelClamper.shader" />
+    <None Include="Assets\Colorful FX\Shaders\ChannelMixer.shader" />
+    <None Include="Assets\Colorful FX\Shaders\ChannelSwapper.shader" />
+    <None Include="Assets\Colorful FX\Shaders\ChromaticAberration.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Colorful.cginc" />
+    <None Include="Assets\Colorful FX\Shaders\ComicBook.shader" />
+    <None Include="Assets\Colorful FX\Shaders\ContrastGain.shader" />
+    <None Include="Assets\Colorful FX\Shaders\ContrastVignette.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Convolution3x3.shader" />
+    <None Include="Assets\Colorful FX\Shaders\CrossStitch.shader" />
+    <None Include="Assets\Colorful FX\Shaders\DirectionalBlur.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Dithering.shader" />
+    <None Include="Assets\Colorful FX\Shaders\DoubleVision.shader" />
+    <None Include="Assets\Colorful FX\Shaders\DynamicLookup.shader" />
+    <None Include="Assets\Colorful FX\Shaders\FastVignette.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Frost.shader" />
+    <None Include="Assets\Colorful FX\Shaders\GaussianBlur.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Glitch.cginc" />
+    <None Include="Assets\Colorful FX\Shaders\Glitch.shader" />
+    <None Include="Assets\Colorful FX\Shaders\GradientRamp.shader" />
+    <None Include="Assets\Colorful FX\Shaders\GrainyBlur.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Grayscale.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Halftone.shader" />
+    <None Include="Assets\Colorful FX\Shaders\HueFocus.shader" />
+    <None Include="Assets\Colorful FX\Shaders\HueSaturationValue.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Kuwahara.cginc" />
+    <None Include="Assets\Colorful FX\Shaders\Kuwahara.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Led.shader" />
+    <None Include="Assets\Colorful FX\Shaders\LensDistortionBlur.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Letterbox.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Levels.shader" />
+    <None Include="Assets\Colorful FX\Shaders\LookupFilter.shader" />
+    <None Include="Assets\Colorful FX\Shaders\LookupFilter2D.shader" />
+    <None Include="Assets\Colorful FX\Shaders\LookupFilter3D.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Negative.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Noise.shader" />
+    <None Include="Assets\Colorful FX\Shaders\PhotoFilter.shader" />
+    <None Include="Assets\Colorful FX\Shaders\PixelMatrix.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Pixelate.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Posterize.shader" />
+    <None Include="Assets\Colorful FX\Shaders\RGBSplit.shader" />
+    <None Include="Assets\Colorful FX\Shaders\RadialBlur.shader" />
+    <None Include="Assets\Colorful FX\Shaders\SCurveContrast.shader" />
+    <None Include="Assets\Colorful FX\Shaders\ShadowsMidtonesHighlights.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Sharpen.shader" />
+    <None Include="Assets\Colorful FX\Shaders\SmartSaturation.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Strokes.shader" />
+    <None Include="Assets\Colorful FX\Shaders\TVVignette.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Technicolor.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Threshold.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Vibrance.shader" />
+    <None Include="Assets\Colorful FX\Shaders\WaveDistortion.shader" />
+    <None Include="Assets\Colorful FX\Shaders\WhiteBalance.shader" />
+    <None Include="Assets\Colorful FX\Shaders\Wiggle.shader" />
+    <None Include="Assets\FogVolume\Resources\FogVolume.shader" />
     <None Include="Assets\Fonts\LuckiestGuy\LICENSE.txt" />
+    <None Include="Assets\Natural Bloom\Shaders\SEEmissiveTextured.shader" />
+    <None Include="Assets\Natural Bloom\Shaders\SENaturalBloomAndDirtyLens.shader" />
+    <None Include="Assets\Natural Bloom\Shaders\SEParticlesAdditive.shader" />
+    <None Include="Assets\Particle Playground\Graphics\Shaders\Alpha Blended Texture With Color Tint.shader" />
+    <None Include="Assets\Particle Playground\Graphics\Shaders\Alpha Blended Texture.shader" />
+    <None Include="Assets\Particle Playground\Graphics\Shaders\Vertex Color.shader" />
+    <None Include="Assets\Particle Playground\Graphics\Shaders\VertexLit Color.shader" />
+    <None Include="Assets\Particle Playground\Graphics\Shaders\VertexLit Texture.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\AlphaBlended.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\AlphaBlendedNoSmooth.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Distortion\DistortionCullBack.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Distortion\DistortionCullOff.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Distortion\DistortionParticlesCutout.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Distortion\Free\FreeDistortionCullBack.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Distortion\Free\FreeDistortionCullOff.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Distortion\Free\FreeDistortionCutOut.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Explosion.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\GlowAdditiveSimple.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\GlowAdditiveTwoColor.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\IceShaderDistortion.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\IceShaderFastSimple.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\IceVert.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Mobile\Distortion\DistortionCullBack.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Mobile\Distortion\DistortionCullOff.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Mobile\Distortion\DistortionParticlesCutout.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Mobile\IceShaderDistortion.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Mobile\IceVert.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Mobile\SlimeCutOut.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Mobile\Water.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\MultiplyDouble.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\ParticleAdd.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\ParticleAddNoSmooth.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Particles.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Projectors\ProjectorAdditive.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Projectors\ProjectorBlended.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\SlimeCutOut.shader" />
+    <None Include="Assets\Realistic Effects Pack\Shaders\Water.shader" />
+    <None Include="Assets\SSAO Pro\Resources\SSAOPro.cginc" />
+    <None Include="Assets\SSAO Pro\Resources\SSAOPro_v1.shader" />
+    <None Include="Assets\SSAO Pro\Resources\SSAOPro_v2.shader" />
+    <None Include="Assets\SSR\HelperShaders\Candela Bumped Cube with SSR.shader" />
+    <None Include="Assets\SSR\HelperShaders\Candela Bumped Specular PBS.shader" />
+    <None Include="Assets\SSR\HelperShaders\Candela Bumped Specular.shader" />
+    <None Include="Assets\SSR\HelperShaders\Candela Cubemap with SSR.shader" />
+    <None Include="Assets\SSR\HelperShaders\Candela Specular Map PBS SSR.shader" />
+    <None Include="Assets\SSR\HelperShaders\Candela Specular Map.shader" />
+    <None Include="Assets\SSR\Resources\CandelaCompose.shader" />
+    <None Include="Assets\SSR\Resources\CandelaSSRRv2.shader" />
+    <None Include="Assets\SSR\Resources\CustomDepthSSRR.shader" />
+    <None Include="Assets\SSR\Resources\CustomNormalSSRR.shader" />
+    <None Include="Assets\SSR\Resources\LumaComp.shader" />
     <None Include="Assets\Shader\MoonShader.shader" />
+    <None Include="Assets\Shader\Unlit Transparent.shader" />
     <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetBasic.shader" />
     <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetCustomLighting.shader" />
     <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetPBR.shader" />
@@ -191,6 +436,12 @@
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
+    <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\Blend.shader" />
+    <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendForBloom.shader" />
+    <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
+    <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
+    <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
+    <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />

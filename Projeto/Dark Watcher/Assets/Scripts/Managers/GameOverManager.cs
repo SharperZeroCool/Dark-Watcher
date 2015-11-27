@@ -6,6 +6,10 @@ public class GameOverManager : MonoBehaviour {
 
 	private Animator anim;
 
+	public void RestartLevel() {
+		Application.LoadLevel(Application.loadedLevel);
+	}
+
 	private void Awake() {
 		anim = GetComponent<Animator>();
 	}

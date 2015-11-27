@@ -1,45 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CollectableBehaviour : MonoBehaviour {
+public abstract class CollectableBehaviour : MonoBehaviour {
 
-	public int score;
+	protected AudioSource audioSource;
 
-	private AudioSource audioSource;
-
-	private BoxCollider boxCollider;
-
-	private MeshRenderer mesh;
-
-	void Start () {
+	protected void Start () {
 		audioSource = GetComponent<AudioSource>();
-		boxCollider = GetComponent<BoxCollider>();
-		mesh = GetComponentInChildren<MeshRenderer>();
 	}
 
-	private void OnTriggerEnter(Collider other) {
+	protected void OnTriggerEnter(Collider other) {
 		if ( IsPlayer(other.gameObject.tag) ) {
-			CollectCoin();
+			BeCollected();
 		}
 	}
 
-	private void OnTriggerExit(Collider other) {
+	protected void OnTriggerExit(Collider other) {
 		if ( IsPlayer(other.gameObject.tag) ) {
-			CollectCoin();
+			BeCollected();
 		}
 	}
 
-	private void CollectCoin() {
-		ScoreManager.score += score;
-		audioSource.Play();
-		boxCollider.enabled = false;
-		mesh.enabled = false;
-		Invoke("DisableCoin", 0.5f);
-	}
-	
-	private void DisableCoin() {
-		gameObject.SetActive(false);
-	}
+	protected abstract void BeCollected();
+
+	protected abstract void Disable();
 
 	private bool IsPlayer(string tag) {
 		return tag == "Player";

@@ -7,11 +7,13 @@ public class CoinManager : AbstractManager {
 
 	public int percentChance;
 
-	public int maxSpawnRange;
+	public int maxZ;
+
+	public float minZ;
 
 	protected override IEnumerator ManageSpawn() {
 		while ( true ) {
-			int random = Random.Range(1, 100);
+			int random = Random.Range(0, 100);
 
 			if ( random <= percentChance ) {
 				SpawnGameObject();
@@ -24,7 +26,7 @@ public class CoinManager : AbstractManager {
 
 
 	protected override void SpawnGameObject() {
-		int randomPosition = Random.Range(-maxSpawnRange, maxSpawnRange);
+		float randomPosition = Random.Range(minZ, maxZ);
 		if ( randomPosition >= 0 && randomPosition <= 15) {
 			randomPosition += 15;
 		} else if(randomPosition <=0 && randomPosition >= -15){

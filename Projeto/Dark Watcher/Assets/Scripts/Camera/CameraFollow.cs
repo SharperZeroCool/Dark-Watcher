@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Camera))]
 public class CameraFollow : MonoBehaviour {
 
 	public Transform target;
@@ -24,17 +25,15 @@ public class CameraFollow : MonoBehaviour {
 	private Vector3 offset;
 
 	private void Start() {
-		Application.targetFrameRate = -1;
-		if ( target == null ) {
-			target = GameObject.FindGameObjectWithTag("Player").transform;
-		}
+		Application.targetFrameRate = 120;
+
 
 		if ( useDefaultCameraOffset ) {
-			transform.position = target.position + new Vector3(12, 2.5f, 0);
+			transform.position = GetTarget().position + new Vector3(18, 2.5f, 0);
 			LookAtSubject();
 		}
 
-		offset = target.position - transform.position;
+		offset = GetTarget().position - transform.position;
 
 	}
 
@@ -49,12 +48,12 @@ public class CameraFollow : MonoBehaviour {
 	}
 
 	private void UpdateCameraPosition() {
-		transform.position = target.position - offset;
+		transform.position = GetTarget().position - offset;
 	}
 
 	private void UpdateCameraRotation() {
 		if ( useMouseRotation )
-			transform.RotateAround(target.position, Vector3.up, Input.GetAxis("Mouse X") * mouseSmoothing);
+			transform.RotateAround(GetTarget().position, Vector3.up, Input.GetAxis("Mouse X") * mouseSmoothing);
 		LookAtSubject();
 	}
 
@@ -97,11 +96,11 @@ public class CameraFollow : MonoBehaviour {
 	}
 
 	private void UpdateCameraOffset() {
-		offset = target.position - transform.position;
+		offset = GetTarget().position - transform.position;
 	}
 
 	private void LookAtSubject() {
-		transform.LookAt(target.position + Vector3.up * cameraTargetVerticalOffset);
+		transform.LookAt(GetTarget().position + Vector3.up * cameraTargetVerticalOffset);
 	}
 
 	private bool ZoomIn(float scrollWheel) {
@@ -138,6 +137,13 @@ public class CameraFollow : MonoBehaviour {
 
 	private float CalculateMissingZoom() {
 		return (1 - offset.sqrMagnitude / cameraMaximumZoomDistance) / 2 + 1;
+	}
+
+	private Transform GetTarget() {
+		if ( target == null ) {
+			target = GameObject.FindGameObjectWithTag("Player").transform;
+		}
+		return target;
 	}
 
 }

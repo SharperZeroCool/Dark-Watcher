@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Collider))]
 public class CCPlayerMovement : MonoBehaviour {
 
 	public float speed = 0.3f;
@@ -158,15 +160,8 @@ public class CCPlayerMovement : MonoBehaviour {
 	}
 
 	protected void Animate() {
-		bool isWalking = HasHorizontalMovement();
-		if ( isWalking ) {
-			if ( runningButton ) {
-				anim.speed = 1.5f;
-			} else {
-				anim.speed = 1f;
-			}
-		}
-		anim.SetBool("IsWalking", isWalking);
+		anim.SetFloat("Speed", Mathf.Abs(movement.z));
+
 	}
 
 	private void OnControllerColliderHit(ControllerColliderHit other) {
