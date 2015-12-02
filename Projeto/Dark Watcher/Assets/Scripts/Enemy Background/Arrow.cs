@@ -50,7 +50,9 @@ public class Arrow : MonoBehaviour {
 
 	private void OnCollisionEnter(Collision collision) {
 		if ( collision.gameObject.tag == "Player" ) {
-			collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(2f, false);
+			collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(attackDamage, false);
+		} else if ( collision.transform.gameObject.tag == "Player2" ) {
+			collision.transform.gameObject.GetComponent<Player2Health>().TakeDamage(attackDamage, false);
 		}
 
 		explosionEffect.SetActive(true);

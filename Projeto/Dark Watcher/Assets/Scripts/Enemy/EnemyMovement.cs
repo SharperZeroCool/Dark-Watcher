@@ -59,7 +59,7 @@ public class EnemyMovement : MonoBehaviour {
 		RaycastHit hit;
 
 		if ( Physics.Raycast(transform.position + Vector3.up, transform.forward, out hit, 10f) ) {
-			if ( hit.transform.gameObject.tag == "Player" ) {
+			if ( hit.transform.gameObject.tag == "Player" || hit.transform.gameObject.tag == "Player2" ) {
 				StopMoving();
 				anim.SetTrigger("Attack");
 

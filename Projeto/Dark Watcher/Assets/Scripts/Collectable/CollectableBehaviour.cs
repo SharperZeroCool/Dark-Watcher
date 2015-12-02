@@ -10,23 +10,27 @@ public abstract class CollectableBehaviour : MonoBehaviour {
 	}
 
 	protected void OnTriggerEnter(Collider other) {
-		if ( IsPlayer(other.gameObject.tag) ) {
-			BeCollected();
+		if ( IsPlayer1(other.gameObject.tag) || IsPlayer2(other.gameObject.tag) ) {
+			BeCollected(other.gameObject);
 		}
 	}
 
 	protected void OnTriggerExit(Collider other) {
-		if ( IsPlayer(other.gameObject.tag) ) {
-			BeCollected();
+		if ( IsPlayer1(other.gameObject.tag) || IsPlayer2(other.gameObject.tag) ) {
+			BeCollected(other.gameObject);
 		}
 	}
 
-	protected abstract void BeCollected();
+	protected abstract void BeCollected(GameObject player);
 
 	protected abstract void Disable();
 
-	private bool IsPlayer(string tag) {
+	protected bool IsPlayer1(string tag) {
 		return tag == "Player";
+	}
+
+	protected bool IsPlayer2(string tag) {
+		return tag == "Player2";
 	}
 
 }

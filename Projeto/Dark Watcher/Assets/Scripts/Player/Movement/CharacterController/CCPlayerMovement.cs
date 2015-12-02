@@ -5,6 +5,8 @@ using System.Collections;
 [RequireComponent(typeof(Collider))]
 public class CCPlayerMovement : MonoBehaviour {
 
+	public GameObject otherPlayer;
+
 	public float speed = 0.3f;
 
 	public float runningSpeed = 0.5f;

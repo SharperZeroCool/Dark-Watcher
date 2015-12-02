@@ -5,7 +5,9 @@ public class EnemyBackgroundManager : AbstractManager {
 
 	public Transform[] spawnLocations;
 
-	public Transform target;
+	public Transform player;
+
+	public Transform player2;
 
 	public float intervalSeconds;
 
@@ -26,7 +28,11 @@ public class EnemyBackgroundManager : AbstractManager {
 	protected override void SpawnGameObject() {
 		Transform spawnLocation = GetRandomLocation();
 		GameObject enemyBackground = CacheManager.SpawnNewGameObject(objects, spawnLocation.position, spawnLocation.rotation);
-		enemyBackground.GetComponent<EnemyBackgroundAttack>().target = target;
+		if ( Vector3.Distance(gameObject.transform.position, player.position) < Vector3.Distance(gameObject.transform.position, player2.position) ) {
+			enemyBackground.GetComponent<EnemyBackgroundAttack>().target = player;
+		} else {
+			enemyBackground.GetComponent<EnemyBackgroundAttack>().target = player2;
+		}
 		enemyBackground.GetComponent<EnemyBackgroundMovement>().targets = spawnLocations;
 	}
 

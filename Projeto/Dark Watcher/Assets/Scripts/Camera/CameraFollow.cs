@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(Camera))]
 public class CameraFollow : MonoBehaviour {
 
-	public Transform target;
+	public Transform[] targets;
 
 	public bool useDefaultCameraOffset;
 
@@ -29,11 +29,11 @@ public class CameraFollow : MonoBehaviour {
 
 
 		if ( useDefaultCameraOffset ) {
-			transform.position = GetTarget().position + new Vector3(18, 2.5f, 0);
+			transform.position = GetTarget() + new Vector3(18, 2.5f, 0);
 			LookAtSubject();
 		}
 
-		offset = GetTarget().position - transform.position;
+		offset = GetTarget() - transform.position;
 
 	}
 
@@ -48,12 +48,12 @@ public class CameraFollow : MonoBehaviour {
 	}
 
 	private void UpdateCameraPosition() {
-		transform.position = GetTarget().position - offset;
+		transform.position = GetTarget() - offset;
 	}
 
 	private void UpdateCameraRotation() {
 		if ( useMouseRotation )
-			transform.RotateAround(GetTarget().position, Vector3.up, Input.GetAxis("Mouse X") * mouseSmoothing);
+			transform.RotateAround(GetTarget(), Vector3.up, Input.GetAxis("Mouse X") * mouseSmoothing);
 		LookAtSubject();
 	}
 
@@ -96,11 +96,11 @@ public class CameraFollow : MonoBehaviour {
 	}
 
 	private void UpdateCameraOffset() {
-		offset = GetTarget().position - transform.position;
+		offset = GetTarget() - transform.position;
 	}
 
 	private void LookAtSubject() {
-		transform.LookAt(GetTarget().position + Vector3.up * cameraTargetVerticalOffset);
+		transform.LookAt(GetTarget() + Vector3.up * cameraTargetVerticalOffset);
 	}
 
 	private bool ZoomIn(float scrollWheel) {
@@ -139,11 +139,27 @@ public class CameraFollow : MonoBehaviour {
 		return (1 - offset.sqrMagnitude / cameraMaximumZoomDistance) / 2 + 1;
 	}
 
-	private Transform GetTarget() {
-		if ( target == null ) {
-			target = GameObject.FindGameObjectWithTag("Player").transform;
+	private Vector3 GetTarget() {
+		Vector3 target = Vector3.zero;
+
+		CheckForNewGame();
+
+		for ( int i = 0; i < targets.Length; i++ ) {
+			target += targets[i].position;
 		}
+		target /= targets.Length;
 		return target;
+	}
+
+	private void CheckForNewGame() {
+		bool newGame = false;
+		if(targets[0] == null || targets[1] == null) {
+			newGame = true;
+		}
+		if ( newGame ) {
+			targets[0] = GameObject.FindGameObjectWithTag("Player").transform;
+			targets[1] = GameObject.FindGameObjectWithTag("Player2").transform;
+		}
 	}
 
 }

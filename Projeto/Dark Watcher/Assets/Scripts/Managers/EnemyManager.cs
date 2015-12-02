@@ -4,6 +4,8 @@ public class EnemyManager : AbstractManager {
 
 	public Transform player;
 
+	public Transform player2;
+
 	public float intervalSeconds;
 
 	public int percentChance;
@@ -33,7 +35,11 @@ public class EnemyManager : AbstractManager {
 		} while ( Mathf.Abs(randomPositionZ - player.position.z) < 80 );
 
 		GameObject gameObject = CacheManager.SpawnNewGameObject(objects, Vector3.forward * randomPositionZ, transform.rotation);
-		gameObject.GetComponent<EnemyMovement>().target = player;
+		if ( Vector3.Distance(gameObject.transform.position, player.position) < Vector3.Distance(gameObject.transform.position, player2.position) ) {
+			gameObject.GetComponent<EnemyMovement>().target = player;
+		} else {
+			gameObject.GetComponent<EnemyMovement>().target = player2;
+		}
 		gameObject.GetComponent<EnemyHealth>().startingHealth = startingHealth;
 		gameObject.GetComponent<EnemyHealth>().ResetHealth();
 	}

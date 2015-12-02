@@ -57,12 +57,12 @@ public class CCPlayerMovement2D : CCPlayerMovement {
 		LimitHorizontalSpeed();
 		LimitVerticalSpeed();
 
-		if ( canMove )
+		if ( canMove && CheckForDistanceBetweenPlayers() )
 			characterController.Move(movement * Time.fixedDeltaTime);
 
 		Animate();
 
-		if ( canCheckForLanding && characterController.isGrounded) {
+		if ( canCheckForLanding && characterController.isGrounded ) {
 			LandAnimation();
 		}
 
@@ -219,6 +219,26 @@ public class CCPlayerMovement2D : CCPlayerMovement {
 		Vector3 position = transform.position;
 		position.x = 0;
 		transform.position = position;
+	}
+
+	private bool CheckForDistanceBetweenPlayers() {
+		if ( IsAboveMaximumDistance() && (ToTheRightGoingRight() || ToTheLeftGoingLeft()) ) {
+			return false;
+		}
+
+		return true;
+	}
+
+	private bool IsAboveMaximumDistance() {
+		return Vector3.Distance(otherPlayer.transform.position, transform.position) >= 32.0f;
+	}
+
+	private bool ToTheRightGoingRight() {
+		return horizontalAxis > 0 && transform.position.z > otherPlayer.transform.position.z;
+	}
+
+	private bool ToTheLeftGoingLeft() {
+		return horizontalAxis < 0 && transform.position.z < otherPlayer.transform.position.z;
 	}
 
 }

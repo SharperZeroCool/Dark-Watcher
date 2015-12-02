@@ -6,7 +6,7 @@ public class MoonMovement : MonoBehaviour {
 	private Transform target;
 
 	private void Start() {
-		target = GameObject.FindGameObjectWithTag("Player").transform;
+		target = Camera.main.transform;
 	}
 
 	void FixedUpdate() {

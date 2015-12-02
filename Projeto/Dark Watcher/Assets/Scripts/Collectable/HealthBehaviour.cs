@@ -3,12 +3,14 @@ using System.Collections;
 
 public class HealthBehaviour : CollectableBehaviour {
 
-	public PlayerHealth playerHealth;
-
 	public int healthPoints;
 
-	protected override void BeCollected() {
-		playerHealth.HealDamage(healthPoints);
+	protected override void BeCollected(GameObject player) {
+		if ( IsPlayer1(player.tag) ) {
+			player.GetComponent<PlayerHealth>().HealDamage(healthPoints);
+		} else if ( IsPlayer2(player.tag) ) {
+			player.GetComponent<Player2Health>().HealDamage(healthPoints);
+		}
 		SoundManager.instance.playAtRandomPitch(audioSource);
 		CacheManager.DeSpawnGameObject(gameObject);
 		Invoke("Disable", 0.5f);

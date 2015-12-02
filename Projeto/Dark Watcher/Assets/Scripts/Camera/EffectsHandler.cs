@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Colorful;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Camera))]
 public class EffectsHandler : MonoBehaviour {
@@ -10,6 +11,8 @@ public class EffectsHandler : MonoBehaviour {
 	private const bool ENABLED = true;
 
 	private const bool DISABLED = false;
+
+	private List<string> playersTag = new List<string>();
 
 	private void Awake() {
 		if ( instance == null ) {
@@ -32,12 +35,18 @@ public class EffectsHandler : MonoBehaviour {
 		SetDamageEffectsTo(DISABLED);
 	}
 
-	public void EnableProtectionEffects() {
+	public void EnableProtectionEffects(string playerTag) {
 		SetProtectionEffectsTo(ENABLED);
-    }
+		if ( !playersTag.Contains(playerTag) ) {
+			playersTag.Add(playerTag);
+		}
+	}
 
-	public void DisableProtectionEffects() {
-		SetProtectionEffectsTo(DISABLED);
+	public void DisableProtectionEffects(string playerTag) {
+		if ( playersTag.Count <= 1 && playersTag.Contains(playerTag) ) {
+			SetProtectionEffectsTo(DISABLED);
+		}
+		playersTag.Remove(playerTag);
 	}
 
 	private void SetDamageEffectsTo(bool newState) {

@@ -25,6 +25,8 @@ public class EnemyAttack : MonoBehaviour {
 			if ( Physics.Raycast(transform.position + Vector3.up, transform.forward, out hit, 10f) ) {
 				if ( hit.transform.gameObject.tag == "Player" ) {
 					hit.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(attackDamage, false);
+				} else if ( hit.transform.gameObject.tag == "Player2" ) {
+					hit.transform.gameObject.GetComponent<Player2Health>().TakeDamage(attackDamage, false);
 				}
 
 			}

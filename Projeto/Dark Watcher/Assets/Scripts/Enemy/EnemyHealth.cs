@@ -9,12 +9,15 @@ public class EnemyHealth : MonoBehaviour {
 
 	public float currentHealth;
 
-	private EnemyAttack enemyAttack;
+	private MonoBehaviour enemyAttack;
 
 	private bool isSinking;
 
 	private void Start() {
 		enemyAttack = GetComponent<EnemyAttack>();
+		if(enemyAttack == null) {
+			enemyAttack = GetComponent<EnemyBossAttack>();
+		}
 		ResetHealth();
     }
 

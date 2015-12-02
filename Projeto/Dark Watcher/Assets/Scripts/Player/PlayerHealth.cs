@@ -149,17 +149,15 @@ public class PlayerHealth : MonoBehaviour {
 	}
 
 	private void ProtectPlayer() {
-		StopCoroutine("FlashPlayer");
-		flashing = false;
 		EnableProtectedMaterials();
 		anim.enabled = false;
-		Camera.main.GetComponent<EffectsHandler>().EnableProtectionEffects();
+		Camera.main.GetComponent<EffectsHandler>().EnableProtectionEffects(gameObject.tag);
 	}
 
 	private void RemoveProtection() {
 		DisableProtectedMaterials();
 		anim.enabled = true;
-		Camera.main.GetComponent<EffectsHandler>().DisableProtectionEffects();
+		Camera.main.GetComponent<EffectsHandler>().DisableProtectionEffects(gameObject.tag);
 	}
 
 	private void EnableProtectedMaterials() {

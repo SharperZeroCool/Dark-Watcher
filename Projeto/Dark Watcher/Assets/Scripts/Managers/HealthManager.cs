@@ -3,8 +3,6 @@ using System.Collections;
 
 public class HealthManager : AbstractManager {
 
-	public PlayerHealth playerHealth;
-
 	public float intervalSeconds;
 
 	public int percentChance;
@@ -30,8 +28,7 @@ public class HealthManager : AbstractManager {
 	protected override void SpawnGameObject() {
 		float randomPosition = Random.Range(minZ, maxZ);
 
-		GameObject gameObject = CacheManager.SpawnNewGameObject(objects, Vector3.forward * randomPosition + Vector3.up * 0.3f, transform.rotation);
-		gameObject.GetComponent<HealthBehaviour>().playerHealth = playerHealth;
+		CacheManager.SpawnNewGameObject(objects, Vector3.forward * randomPosition + Vector3.up * 0.3f, transform.rotation);
 	}
 
 	protected override void CacheGameObjects() {
